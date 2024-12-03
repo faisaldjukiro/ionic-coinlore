@@ -1,20 +1,33 @@
-<ion-header [translucent]="true">
+<ion-header>
   <ion-toolbar>
-    <ion-title>
-      Blank
-    </ion-title>
+    <ion-buttons slot="start"></ion-buttons>
+    <ion-title>Coin List</ion-title>
+    <ion-buttons slot="end"></ion-buttons>
+    <ion-buttons>
+      <ion-button (click)="refreshData()">Refresh</ion-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
-
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
-  </div>
+<ion-content>
+  <table>
+    <thead>
+      <tr>
+        <th>Rank</th>
+        <th>Kode</th>
+        <th>Nama Koin</th>
+        <th>Harga (IDR)</th>
+        <th>Harga (USD)</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let coin of coins">
+        <td>{{ coin.rank }}</td>
+        <td>{{ coin.symbol }}</td>
+        <td>{{ coin.name }}</td>
+        <td>Rp {{ coin.price_idr | number:'1.0-0' }}</td>
+        <td>{{ coin.price_usd | number:'1.2-2' }} USD</td>
+      </tr>
+    </tbody>
+  </table>
 </ion-content>
