@@ -1,0 +1,7 @@
+{
+  "name": "tugas-3",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
